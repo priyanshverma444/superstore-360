@@ -1,0 +1,20 @@
+{
+  "name": "mini_project",
+  "version": "1.0.0",
+  "description": "Superstore 360",
+  "main": "server.js",
+  "type": "module",
+  "scripts": {
+    "start": "node server.js",
+    "server": "nodemon server.js"
+  },
+  "keywords": [],
+  "author": "Priyansh Verma, Dhruv Jain, Pari, Harsh Kaushik, Shikhar Srivastava, Prashast Saxena",
+  "license": "MIT",
+  "dependencies": {
+    "colors": "^1.4.0",
+    "dotenv": "^16.3.1",
+    "express": "^4.18.2",
+    "nodemon": "^3.0.1"
+  }
+}
