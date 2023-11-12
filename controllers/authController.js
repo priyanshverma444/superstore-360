@@ -1,5 +1,5 @@
-import userModel from "../models/userModel";
-import { hashPassword } from "./../helpers/authHelper";
+import userModel from "../models/userModel.js";
+import { hashPassword } from "./../helpers/authHelper.js";
 
 export const registerController = async (req,res) => {
 try {
@@ -32,7 +32,7 @@ try {
     //register user
     const hashedPassword = await hashPassword(password);
     //save
-    const user = new userModel({
+    const user = await new userModel({
         name,
         email,
         phone,

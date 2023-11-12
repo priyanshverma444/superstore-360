@@ -22,7 +22,7 @@ app.use(morgan("dev"));
 app.use("/api/v1/auth", authRoutes); 
 
 //rest api
-app.get('/', (req,res) =>{
+app.get("/", (req,res) =>{
     res.send("<h1>Welcome to Superstore 360</h1>")
 })
 

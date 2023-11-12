@@ -5,6 +5,6 @@ const router = express.Router()
 
 //routing
 //REISTER || METHOD POST
-router.post("\register",registerController)
+router.post("/register",registerController)
 
 export default router
