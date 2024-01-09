@@ -10,7 +10,7 @@ const AuthProvider = ({children}) => {
     });
 
     //default axios 
-    axios.defaults.headers.common["Authorization"] = auth?.token
+    axios.defaults.headers.common["Authorization"] = auth?.token;
 
     useEffect(() => {
         const data = localStorage.getItem("auth");
@@ -28,7 +28,7 @@ const AuthProvider = ({children}) => {
         <AuthContext.Provider value={[auth,setAuth]}>
             {children}
         </AuthContext.Provider>
-    )
+    );
 } 
 
 //custom hook

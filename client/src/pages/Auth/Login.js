@@ -7,8 +7,7 @@ import { useAuth } from "../../context/auth"
 
 const Login = () => {
     const [email,setEmail] = useState("")
-    const [newPassword,setnewPassword] = useState("")
-    const [answer,setAnswer] = useState("")
+    const [password,setPassword] = useState("")
     const [auth,setAuth] = useAuth()
     const navigate = useNavigate()
     const location = useLocation()
@@ -57,28 +56,22 @@ const Login = () => {
           </div>
           <div className="mb-3">
             <input
-              type="text"
-              value={answer}
-              onChange={(e) => setAnswer(e.target.value)}
+              type="password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
               className="form-control"
-              id="exampleInputEmail1"
-              placeholder="Enter your favourite game"
+              id="exampleInputPassword1"
+              placeholder="Enter your password"
               required
             />
           </div>
           <div className="mb-3">
-            <input
-              type="password"
-              value={newPassword}
-              onChange={(e) => setnewPassword(e.target.value)}
-              className="form-control"
-              id="exampleInputPassword1"
-              placeholder="Enter new password"
-              required
-            />
+          <button type="submit" className="btn btn-primary" onClick={() => {navigate('/forgot-password')}}>
+            Forgot Password
+          </button>
           </div>
           <button type="submit" className="btn btn-primary">
-            Reset
+            Login
           </button>
         </form>
       </div>

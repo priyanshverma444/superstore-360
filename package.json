@@ -11,7 +11,7 @@
     "dev": "concurrently \"npm run server\" \"npm run client\""
   },
   "keywords": [],
-  "author": "Priyansh Verma, Dhruv Jain, Pari, Harsh Kaushik, Shikhar Srivastava, Prashast Saxena",
+  "author": "Priyansh Verma",
   "license": "MIT",
   "dependencies": {
     "axios": "^1.6.2",
