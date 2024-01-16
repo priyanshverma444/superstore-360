@@ -10,7 +10,7 @@ const Products = () => {
   //getall products
   const getAllProducts = async () => {
     try {
-      const { data } = await axios.get("/api/v1/product/get-product");
+      const { data } = await axios.get(`${process.env.REACT_APP_API}/api/v1/product/get-product`);
       setProducts(data.products);
     } catch (error) {
       console.log(error);
@@ -30,7 +30,7 @@ const Products = () => {
         </div>
         <div className="col-md-9 ">
           <h1 className="text-center">All Products List</h1>
-          <div className="d-flex">
+          <div className="d-flex flex-wrap align-items-center">
             {products?.map((p) => (
               <Link
                 key={p._id}
@@ -39,7 +39,7 @@ const Products = () => {
               >
                 <div className="card m-2" style={{ width: "18rem" }}>
                   <img
-                    src={`/api/v1/product/product-photo/${p._id}`}
+                    src={`${process.env.REACT_APP_API}/api/v1/product/product-photo/${p._id}`}
                     className="card-img-top"
                     alt={p.name}
                   />
