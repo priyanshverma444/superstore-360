@@ -39,8 +39,10 @@ const Header = () => {
             <Link to="/" className="navbar-brand">
             <img src="images/superstore-360_logo.png" alt=""/> Superstore-360
             </Link>
+            <div className="ms-auto">
+            <SearchInput />
+            </div>
             <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
-              <SearchInput />
               <li className="nav-item">
                 <NavLink to="/" className="nav-link ">
                   Home

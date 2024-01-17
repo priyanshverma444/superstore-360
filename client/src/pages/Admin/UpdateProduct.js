@@ -64,12 +64,12 @@ const UpdateProduct = () => {
     e.preventDefault();
     try {
       const productData = new FormData();
-      productData.append("Name", name);
-      productData.append("Description", description);
-      productData.append("Price", price);
-      productData.append("Quantity", quantity);
-      photo && productData.append("Photo", photo);
-      productData.append("Category", category);
+      productData.append("name", name);
+      productData.append("description", description);
+      productData.append("price", price);
+      productData.append("quantity", quantity);
+      photo && productData.append("photo", photo);
+      productData.append("category", category);
       const { data } = axios.put(
         `${process.env.REACT_APP_API}/api/v1/product/update-product/${id}`,
         productData

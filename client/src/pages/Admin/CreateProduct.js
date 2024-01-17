@@ -40,12 +40,12 @@ const CreateProduct = () => {
     e.preventDefault();
     try {
       const productData = new FormData();
-      productData.append("Name", name);
-      productData.append("Description", description);
-      productData.append("Price", price);
-      productData.append("Quantity", quantity);
-      productData.append("Photo", photo);
-      productData.append("Category", category);
+      productData.append("name", name);
+      productData.append("description", description);
+      productData.append("price", price);
+      productData.append("quantity", quantity);
+      productData.append("photo", photo);
+      productData.append("category", category);
       const { data } = axios.post(`${process.env.REACT_APP_API}/api/v1/product/create-product`,
         productData
       );
