@@ -69,7 +69,7 @@ const CartPage = () => {
       localStorage.removeItem("cart");
       setCart([]);
       navigate("/dashboard/user/orders");
-      toast.success("Payment Completed Successfully ");
+      toast.success("Payment completed successfully ");
     } catch (error) {
       console.log(error);
       setLoading(false);
@@ -85,10 +85,10 @@ const CartPage = () => {
             </h1>
             <h4 className="text-center">
               {cart?.length
-                ? `You Have ${cart.length} items in your cart ${
-                    auth?.token ? "" : "please login to checkout"
+                ? `You have ${cart.length} items in your cart ${
+                    auth?.token ? "" : "Please login to checkout"
                   }`
-                : " Your Cart Is Empty"}
+                : " Your cart is empty"}
             </h4>
           </div>
         </div>
@@ -155,7 +155,7 @@ const CartPage = () => {
                       })
                     }
                   >
-                    Plase Login to checkout
+                    Please login to checkout
                   </button>
                 )}
               </div>
@@ -180,7 +180,7 @@ const CartPage = () => {
                     onClick={handlePayment}
                     disabled={loading || !instance || !auth?.user?.address}
                   >
-                    {loading ? "Processing ...." : "Make Payment"}
+                    {loading ? "Processing ..." : "Make Payment"}
                   </button>
                 </>
               )}

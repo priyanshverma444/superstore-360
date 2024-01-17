@@ -99,7 +99,7 @@ const Register = () => {
               onChange={(e) => setAnswer(e.target.value)}
               className="form-control"
               id="exampleInputGame1"
-              placeholder="What is your favourite game?"
+              placeholder="What is your favourite game ?"
               required
             />
           </div>
