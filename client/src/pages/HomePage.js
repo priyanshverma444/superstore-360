@@ -134,7 +134,7 @@ const HomePage = () => {
               className="btn btn-danger"
               onClick={() => window.location.reload()}
             >
-              RESET FILTERS
+              Reset Filters
             </button>
           </div>
         </div>
@@ -171,7 +171,7 @@ const HomePage = () => {
                       toast.success("Item Added to cart");
                     }}
                   >
-                    ADD TO CART
+                    Add to Cart
                   </button>
                 </div>
               </div>

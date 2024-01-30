@@ -34,7 +34,7 @@ const Register = () => {
   };
   return (
     <Layout title="Register - Superstore-360">
-      <div className="register">
+      <div className="register mt-4">
         <h1>Register Page</h1>
         <form onSubmit={handleSubmit}> 
           <div className="mb-3">
@@ -103,9 +103,11 @@ const Register = () => {
               required
             />
           </div>
-          <button type="submit" className="btn btn-primary">
+          <div className="text-center">
+          <button type="submit" className="btn btn-primary w-75">
             Register
           </button>
+          </div>
         </form>
       </div>
     </Layout>

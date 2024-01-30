@@ -65,14 +65,16 @@ const Login = () => {
               required
             />
           </div>
+          <div className="text-center">
           <div className="mb-3">
-          <button type="submit" className="btn btn-primary" onClick={() => {navigate('/forgot-password')}}>
+          <button type="submit" className="btn btn-primary w-75" onClick={() => {navigate('/forgot-password')}}>
             Forgot Password
           </button>
           </div>
-          <button type="submit" className="btn btn-primary">
+          <button type="submit" className="btn btn-primary w-75">
             Login
           </button>
+          </div>
         </form>
       </div>
     </Layout>
