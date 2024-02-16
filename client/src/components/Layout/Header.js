@@ -24,6 +24,9 @@ const Header = () => {
     <>
       <nav className="navbar navbar-expand-lg bg-dark border-bottom border-body" data-bs-theme="dark">
         <div className="container-fluid">
+            <Link to="/" className="navbar-brand">
+            <img src="images/superstore-360_logo.png" alt=""/> Superstore-360
+            </Link>
           <button
             className="navbar-toggler"
             type="button"
@@ -36,10 +39,7 @@ const Header = () => {
             <span className="navbar-toggler-icon" />
           </button>
           <div className="collapse navbar-collapse" id="navbarTogglerDemo01">
-            <Link to="/" className="navbar-brand">
-            <img src="images/superstore-360_logo.png" alt=""/> Superstore-360
-            </Link>
-            <div className="ms-auto">
+            <div className="ms-auto mb-1">
             <SearchInput />
             </div>
             <ul className="navbar-nav ms-auto mb-2 mb-lg-0">

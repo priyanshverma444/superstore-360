@@ -139,16 +139,15 @@ const HomePage = () => {
           </div>
         </div>
         <div className="col-md-10">
-          <h1 className="text-center">All Products</h1>
-          <div className="d-flex flex-wrap align-items-center">
+          <div className="d-flex flex-wrap position-relative">
             {products?.map((p) => (
-              <div className="card m-2" style={{ width: "18rem" }} key={p._id}>
+              <div className="card m-4" style={{ width: "18rem", height: "35rem" }} key={p._id}>
                 <img
                   src={`${process.env.REACT_APP_API}/api/v1/product/product-photo/${p._id}`}
                   className="card-img-top"
                   alt={p.name}
                 />
-                <div className="card-body">
+                <div className="card-body position-absolute bottom-0">
                   <h5 className="card-title">{p.name}</h5>
                   <p className="card-text">
                     {p.description.substring(0, 30)}...
