@@ -1,27 +1,26 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 import Layout from "./../../components/Layout/Layout";
 import axios from "axios";
-import {useNavigate} from "react-router-dom";
-import toast from 'react-hot-toast';
+import { useNavigate } from "react-router-dom";
+import toast from "react-hot-toast";
 
 const ForgotPassword = () => {
-    const [email,setEmail] = useState("")
-    const [newPassword,setNewPassword] = useState("")
-    const [answer,setAnswer] = useState("")
-    const navigate = useNavigate()
-    //form function
+  const [email, setEmail] = useState("");
+  const [newPassword, setNewPassword] = useState("");
+  const [answer, setAnswer] = useState("");
+  const navigate = useNavigate();
+  //form function
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
       const res = await axios.post(
         `${process.env.REACT_APP_API}/api/v1/auth/forgot-password`,
-        {email,newPassword,answer}
+        { email, newPassword, answer }
       );
-      if(res && res.data.success){
+      if (res && res.data.success) {
         toast.success(res.data && res.data.message);
         navigate("/login");
-      }
-      else{
+      } else {
         toast.error(res.data.message);
       }
     } catch (error) {
@@ -29,11 +28,16 @@ const ForgotPassword = () => {
       toast.error("Something went wrong");
     }
   };
-    return (
+  return (
     <Layout title="Forgot Password : Superstore-360">
-    <div className="register">
-        <form onSubmit={handleSubmit}> 
-        <h1 className="title">Reset Password</h1>
+      <div className="register card mx-auto mt-4"
+        data-bs-theme="dark"
+        style={{ width: "25rem", height: "26rem" }}>
+        <form onSubmit={handleSubmit}>
+        <div className="d-flex justify-content-center mb-3">
+        <img src="images/superstore-360_logo.png" height="100px" width="100px" alt="" />
+        </div>
+          <h2 className="title">Reset Password</h2>
           <div className="mb-3">
             <input
               type="email"
@@ -67,13 +71,15 @@ const ForgotPassword = () => {
               required
             />
           </div>
-          <button type="submit" className="btn btn-primary" >
+          <div className="text-center">
+          <button type="submit" className="btn btn-danger w-50">
             Reset
           </button>
+          </div>
         </form>
       </div>
     </Layout>
-  )
-}
+  );
+};
 
-export default ForgotPassword
+export default ForgotPassword;

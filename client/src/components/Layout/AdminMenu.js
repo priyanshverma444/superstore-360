@@ -3,8 +3,8 @@ import { NavLink } from "react-router-dom";
 const AdminMenu = () => {
   return (
     <>
-      <div className="text-center">
-        <div className="list-group dashboard-menu">
+      <div className="text-center" data-bs-theme="dark">
+        <div className="list-group dashboard-menu card pt-2 bg-danger">
           <h4>Admin Panel</h4>
           <NavLink
             to="/dashboard/admin/create-category"

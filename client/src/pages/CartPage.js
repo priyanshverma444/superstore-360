@@ -46,7 +46,9 @@ const CartPage = () => {
   //get payment gateway token
   const getToken = async () => {
     try {
-      const { data } = await axios.get(`${process.env.REACT_APP_API}/api/v1/product/braintree/token`);
+      const { data } = await axios.get(
+        `${process.env.REACT_APP_API}/api/v1/product/braintree/token`
+      );
       setClientToken(data?.clientToken);
     } catch (error) {
       console.log(error);
@@ -61,15 +63,18 @@ const CartPage = () => {
     try {
       setLoading(true);
       const { nonce } = await instance.requestPaymentMethod();
-      const { data } = await axios.post(`${process.env.REACT_APP_API}/api/v1/product/braintree/payment`, {
-        nonce,
-        cart,
-      });
+      const { data } = await axios.post(
+        `${process.env.REACT_APP_API}/api/v1/product/braintree/payment`,
+        {
+          nonce,
+          cart,
+        }
+      );
       setLoading(false);
       localStorage.removeItem("cart");
       setCart([]);
       navigate("/dashboard/user/orders");
-      toast.success("Payment completed successfully ");
+      toast.success("Payment completed successfully");
     } catch (error) {
       console.log(error);
       setLoading(false);
@@ -77,8 +82,7 @@ const CartPage = () => {
   };
   return (
     <Layout>
-      <div className="container">
-        <div className="row">
+      <div className="">
           <div className="col-md-12">
             <h1 className="text-center bg-light p-2 mb-1">
               {`Hello ${auth?.token && auth?.user?.name}`}
@@ -92,20 +96,20 @@ const CartPage = () => {
             </h4>
           </div>
         </div>
-        <div className="row">
-          <div className="col-md-8">
+      <div className="d-flex flex-column justify-content-center align-items-center">
+          <div className="w-75 card p-3 m-4 mb-4 border shadow">
             {cart?.map((p) => (
-              <div className="row mb-2 p-3 card flex-row" key={p._id}>
+              <div className="row mb-2 p-3 m-2 card flex-row" key={p._id}>
                 <div className="col-md-4">
                   <img
                     src={`${process.env.REACT_APP_API}/api/v1/product/product-photo/${p._id}`}
-                    className="card-img-top"
+                    className="p_img card-img-top"
                     alt={p.name}
-                    width="100px"
-                    height={"100px"}
+                    width="150px"
+                    height={"150px"}
                   />
                 </div>
-                <div className="col-md-8">
+                <div className="col-md-8 text-center">
                   <p>{p.name}</p>
                   <p>{p.description.substring(0, 30)}</p>
                   <p>Price : {p.price}</p>
@@ -119,7 +123,7 @@ const CartPage = () => {
               </div>
             ))}
           </div>
-          <div className="col-md-4 text-center">
+          <div className="text-center col-md-7 card p-3 m-4 border shadow">
             <h2>Cart Summary</h2>
             <p>Total | Checkout | Payment</p>
             <hr />
@@ -130,7 +134,7 @@ const CartPage = () => {
                   <h4>Current Address</h4>
                   <h5>{auth?.user?.address}</h5>
                   <button
-                    className="btn btn-outline-warning"
+                    className="btn btn-outline-danger"
                     onClick={() => navigate("/dashboard/user/profile")}
                   >
                     Update Address
@@ -141,14 +145,14 @@ const CartPage = () => {
               <div className="mb-3">
                 {auth?.token ? (
                   <button
-                    className="btn btn-outline-warning"
+                    className="btn btn-outline-danger"
                     onClick={() => navigate("/dashboard/user/profile")}
                   >
                     Update Address
                   </button>
                 ) : (
                   <button
-                    className="btn btn-outline-warning"
+                    className="btn btn-outline-danger"
                     onClick={() =>
                       navigate("/login", {
                         state: "/cart",
@@ -176,18 +180,17 @@ const CartPage = () => {
                   />
 
                   <button
-                    className="btn btn-primary"
+                    className="btn btn-danger"
                     onClick={handlePayment}
                     disabled={loading || !instance || !auth?.user?.address}
                   >
-                    {loading ? "Processing ..." : "Make Payment"}
+                    {loading ? "Processing..." : "Make Payment"}
                   </button>
                 </>
               )}
             </div>
           </div>
         </div>
-      </div>
     </Layout>
   );
 };

@@ -1,35 +1,34 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 import Layout from "./../../components/Layout/Layout";
 import axios from "axios";
-import {useNavigate,useLocation} from "react-router-dom";
-import toast from 'react-hot-toast';
-import { useAuth } from "../../context/auth"
+import { useNavigate, useLocation } from "react-router-dom";
+import toast from "react-hot-toast";
+import { useAuth } from "../../context/auth";
 
 const Login = () => {
-    const [email,setEmail] = useState("")
-    const [password,setPassword] = useState("")
-    const [auth,setAuth] = useAuth()
-    const navigate = useNavigate()
-    const location = useLocation()
-    //form function
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [auth, setAuth] = useAuth();
+  const navigate = useNavigate();
+  const location = useLocation();
+  //form function
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
       const res = await axios.post(
         `${process.env.REACT_APP_API}/api/v1/auth/login`,
-        {email,password}
+        { email, password }
       );
-      if(res && res.data.success){
+      if (res && res.data.success) {
         toast.success(res.data && res.data.message);
         setAuth({
           ...auth,
-          user:res.data.user,
-          token:res.data.token,
+          user: res.data.user,
+          token: res.data.token,
         });
-        localStorage.setItem("auth",JSON.stringify(res.data))
+        localStorage.setItem("auth", JSON.stringify(res.data));
         navigate(location.state || "/");
-      }
-      else{
+      } else {
         toast.error(res.data.message);
       }
     } catch (error) {
@@ -40,9 +39,16 @@ const Login = () => {
 
   return (
     <Layout title="Login - Superstore-360">
-      <div className="register">
-        <h1 className="title">Login Page</h1>
-        <form onSubmit={handleSubmit}> 
+      <div
+        className="register card mx-auto mt-4"
+        data-bs-theme="dark"
+        style={{ width: "25rem", height: "26rem" }}
+      >
+        <form onSubmit={handleSubmit} data-bs-theme="dark">
+        <div className="d-flex justify-content-center mb-3">
+        <img src="images/superstore-360_logo.png" height="100px" width="100px" alt="" />
+        </div>
+        <h2 className="title">Login - Superstore-360</h2>
           <div className="mb-3">
             <input
               type="email"
@@ -66,19 +72,25 @@ const Login = () => {
             />
           </div>
           <div className="text-center">
-          <div className="mb-3">
-          <button type="submit" className="btn btn-primary w-75" onClick={() => {navigate('/forgot-password')}}>
-            Forgot Password
-          </button>
-          </div>
-          <button type="submit" className="btn btn-primary w-75">
-            Login
-          </button>
+            <div className="mb-3">
+              <button
+                type="submit"
+                className="btn btn-danger w-50"
+                onClick={() => {
+                  navigate("/forgot-password");
+                }}
+              >
+                Forgot Password
+              </button>
+            </div>
+            <button type="submit" className="btn btn-danger w-50">
+              Login
+            </button>
           </div>
         </form>
       </div>
     </Layout>
-  )
-}
+  );
+};
 
-export default Login
+export default Login;

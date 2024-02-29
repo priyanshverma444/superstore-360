@@ -7,10 +7,12 @@ import moment from "moment";
 
 const Orders = () => {
   const [orders, setOrders] = useState([]);
-  const [auth, setAuth] = useAuth();
+  const [auth] = useAuth();
   const getOrders = async () => {
     try {
-      const { data } = await axios.get(`${process.env.REACT_APP_API}/api/v1/auth/orders`);
+      const { data } = await axios.get(
+        `${process.env.REACT_APP_API}/api/v1/auth/orders`
+      );
       setOrders(data);
     } catch (error) {
       console.log(error);
@@ -22,16 +24,16 @@ const Orders = () => {
   }, [auth?.token]);
   return (
     <Layout title={"Your Orders"}>
-      <div className="container-fluid p-3 m-3 dashboard">
+      <div className="container mt-4 dashboard">
         <div className="row">
-          <div className="col-md-3">
+          <div className="col-md-3 mb-4">
             <UserMenu />
           </div>
-          <div className="col-md-9">
-            <h1 className="text-center">All Orders</h1>
+          <div className="col-md-9 d-flex flex-column justify-content-center">
+            {/* <h1 className="text-center">All Orders</h1> */}
             {orders?.map((o, i) => {
               return (
-                <div className="border shadow">
+                <div className="border shadow mb-4">
                   <table className="table">
                     <thead>
                       <tr>
@@ -60,7 +62,7 @@ const Orders = () => {
                         <div className="col-md-4">
                           <img
                             src={`${process.env.REACT_APP_API}/api/v1/product/product-photo/${p._id}`}
-                            className="card-img-top"
+                            className="p_img card-img-top"
                             alt={p.name}
                             width="100px"
                             height={"100px"}

@@ -15,9 +15,12 @@ const CreateCategory = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const { data } = await axios.post(`${process.env.REACT_APP_API}/api/v1/category/create-category`, {
-        name,
-      });
+      const { data } = await axios.post(
+        `${process.env.REACT_APP_API}/api/v1/category/create-category`,
+        {
+          name,
+        }
+      );
       if (data?.success) {
         toast.success(`${name} is created`);
         getAllCategory();
@@ -33,7 +36,9 @@ const CreateCategory = () => {
   //get all cat
   const getAllCategory = async () => {
     try {
-      const { data } = await axios.get(`${process.env.REACT_APP_API}/api/v1/category/get-category`);
+      const { data } = await axios.get(
+        `${process.env.REACT_APP_API}/api/v1/category/get-category`
+      );
       if (data.success) {
         setCategories(data.category);
       }
@@ -87,26 +92,27 @@ const CreateCategory = () => {
   };
   return (
     <Layout title={"Dashboard - Create Category"}>
-      <div className="container-fluid m-3 p-3">
+      <div className="container mt-4">
         <div className="row">
-          <div className="col-md-3">
+          <div className="col-md-3 mb-4">
             <AdminMenu />
           </div>
-          <div className="col-md-9">
-            <h1>Manage Category</h1>
-            <div className="p-3 w-50">
+          <div className="col-md-9 d-flex flex-column justify-content-center align-items-center">
+            {/* <h1>Manage Category</h1> */}
+            <div className="card w-75 align-items-center mb-4" data-bs-theme="dark">
+            <div className="card my-4 w-75 p-3">
               <CategoryForm
                 handleSubmit={handleSubmit}
                 value={name}
                 setValue={setName}
               />
             </div>
-            <div className="w-75">
-              <table className="table">
+            <div className="w-75 d-flex flex-column mb-2">
+              <table className="table justify-content-center align-items-center">
                 <thead>
                   <tr>
                     <th scope="col">Name</th>
-                    <th scope="col">Actions</th>
+                    <th className="d-flex justify-content-center align-items-center" scope="col">Actions</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -114,9 +120,9 @@ const CreateCategory = () => {
                     <>
                       <tr>
                         <td key={c._id}>{c.name}</td>
-                        <td>
+                        <td className="d-flex justify-content-center align-items-center">
                           <button
-                            className="btn btn-primary ms-2"
+                            className="btn btn-danger ms-2"
                             onClick={() => {
                               setVisible(true);
                               setUpdatedName(c.name);
@@ -151,6 +157,7 @@ const CreateCategory = () => {
                 handleSubmit={handleUpdate}
               />
             </Modal>
+          </div>
           </div>
         </div>
       </div>

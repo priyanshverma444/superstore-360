@@ -27,13 +27,16 @@ const Profile = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const { data } = await axios.put(`${process.env.REACT_APP_API}/api/v1/auth/profile`, {
-        name,
-        email,
-        password,
-        phone,
-        address,
-      });
+      const { data } = await axios.put(
+        `${process.env.REACT_APP_API}/api/v1/auth/profile`,
+        {
+          name,
+          email,
+          password,
+          phone,
+          address,
+        }
+      );
       if (data?.errro) {
         toast.error(data?.error);
       } else {
@@ -51,15 +54,16 @@ const Profile = () => {
   };
   return (
     <Layout title={"Your Profile"}>
-      <div className="container-fluid m-3 p-3">
+      <div className="container mt-4">
         <div className="row">
-          <div className="col-md-3">
+          <div className="col-md-3 mb-4">
             <UserMenu />
           </div>
-          <div className="col-md-9">
-            <div className="form-container ">
+          <div className="col-md-9 d-flex justify-content-center">
+            <div className="card w-75 mb-4 border shadow" data-bs-theme="dark">
+            <div className="form-container p-4" data-bs-theme="dark">
               <form onSubmit={handleSubmit}>
-                <h4 className="title">User Profile</h4>
+                <h4 className="title d-flex justify-content-center">User Profile</h4>
                 <div className="mb-3">
                   <input
                     type="text"
@@ -112,11 +116,13 @@ const Profile = () => {
                     placeholder="Enter your address"
                   />
                 </div>
-
-                <button type="submit" className="btn btn-primary">
-                  UPDATE
+                <div className="d-flex justify-content-center">
+                <button type="submit" className="btn btn-danger">
+                  Update Profile
                 </button>
+                </div>
               </form>
+            </div>
             </div>
           </div>
         </div>

@@ -13,10 +13,11 @@ const CategoryForm = ({ handleSubmit, value, setValue }) => {
             onChange={(e) => setValue(e.target.value)}
           />
         </div>
-
-        <button type="submit" className="btn btn-primary">
+        <div className="d-flex justify-content-center">
+        <button type="submit" className="btn btn-danger">
           Submit
         </button>
+        </div>
       </form>
     </>
   );

@@ -21,7 +21,9 @@ const CreateProduct = () => {
   //get all category
   const getAllCategory = async () => {
     try {
-      const { data } = await axios.get(`${process.env.REACT_APP_API}/api/v1/category/get-category`);
+      const { data } = await axios.get(
+        `${process.env.REACT_APP_API}/api/v1/category/get-category`
+      );
       if (data?.success) {
         setCategories(data?.category);
       }
@@ -46,7 +48,8 @@ const CreateProduct = () => {
       productData.append("quantity", quantity);
       productData.append("photo", photo);
       productData.append("category", category);
-      const { data } = axios.post(`${process.env.REACT_APP_API}/api/v1/product/create-product`,
+      const { data } = axios.post(
+        `${process.env.REACT_APP_API}/api/v1/product/create-product`,
         productData
       );
       if (data?.success) {
@@ -63,14 +66,14 @@ const CreateProduct = () => {
 
   return (
     <Layout title={"Dashboard - Create Product"}>
-      <div className="container-fluid m-3 p-3">
+      <div className="container mt-4 mb-4">
         <div className="row">
-          <div className="col-md-3">
+          <div className="col-md-3 mb-4">
             <AdminMenu />
           </div>
-          <div className="col-md-9">
-            <h1>Create Product</h1>
-            <div className="m-1 w-75">
+          <div className="col-md-9 d-flex flex-column justify-content-center align-items-center">
+            {/* <h1>Create Product</h1> */}
+            <div className="card w-75 p-3">
               <Select
                 bordered={false}
                 placeholder="Select a category"
@@ -88,7 +91,7 @@ const CreateProduct = () => {
                 ))}
               </Select>
               <div className="mb-3">
-                <label className="btn btn-outline-secondary col-md-12">
+                <label className="btn btn-outline-secondary col-md-12 w-100">
                   {photo ? photo.name : "Upload photo"}
                   <input
                     type="file"
@@ -99,7 +102,7 @@ const CreateProduct = () => {
                   />
                 </label>
               </div>
-              <div className="mb-3">
+              <div>
                 {photo && (
                   <div className="text-center">
                     <img
@@ -148,7 +151,7 @@ const CreateProduct = () => {
                   onChange={(e) => setQuantity(e.target.value)}
                 />
               </div>
-              <div className="mb-3">
+              <div>
                 <Select
                   bordered={false}
                   placeholder="Select shipping"
@@ -163,8 +166,8 @@ const CreateProduct = () => {
                   <Option value="1">Yes</Option>
                 </Select>
               </div>
-              <div className="mb-3">
-                <button className="btn btn-primary" onClick={handleCreate}>
+              <div className="d-flex justify-content-center">
+                <button className="btn btn-danger" onClick={handleCreate}>
                   Create Product
                 </button>
               </div>

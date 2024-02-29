@@ -9,8 +9,11 @@ const Categories = () => {
       <div className="container">
         <div className="row">
           {categories.map((c) => (
-            <div className="col-md-4 mt-5 mb-3 gx-3 gy-3" key={c._id}>
-              <Link to={`/category/${c.slug}`} className="categories_button btn">
+            <div className="col-md-4 gx-3 gy-3" key={c._id}>
+              <Link
+                to={`/category/${c.slug}`}
+                className="categories_button btn-danger btn text-white"
+              >
                 {c.name}
               </Link>
             </div>

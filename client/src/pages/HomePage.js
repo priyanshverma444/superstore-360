@@ -20,7 +20,9 @@ const HomePage = () => {
   //get all cat
   const getAllCategory = async () => {
     try {
-      const { data } = await axios.get(`${process.env.REACT_APP_API}/api/v1/category/get-category`);
+      const { data } = await axios.get(
+        `${process.env.REACT_APP_API}/api/v1/category/get-category`
+      );
       if (data?.success) {
         setCategories(data?.category);
       }
@@ -37,7 +39,9 @@ const HomePage = () => {
   const getAllProducts = async () => {
     try {
       setLoading(true);
-      const { data } = await axios.get(`${process.env.REACT_APP_API}/api/v1/product/product-list/${page}`);
+      const { data } = await axios.get(
+        `${process.env.REACT_APP_API}/api/v1/product/product-list/${page}`
+      );
       setLoading(false);
       setProducts(data.products);
     } catch (error) {
@@ -49,7 +53,9 @@ const HomePage = () => {
   //getTOtal COunt
   const getTotal = async () => {
     try {
-      const { data } = await axios.get(`${process.env.REACT_APP_API}/api/v1/product/product-count`);
+      const { data } = await axios.get(
+        `${process.env.REACT_APP_API}/api/v1/product/product-count`
+      );
       setTotal(data?.total);
     } catch (error) {
       console.log(error);
@@ -59,12 +65,15 @@ const HomePage = () => {
   useEffect(() => {
     if (page === 1) return;
     loadMore();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [page]);
   //load more
   const loadMore = async () => {
     try {
       setLoading(true);
-      const { data } = await axios.get(`${process.env.REACT_APP_API}/api/v1/product/product-list/${page}`);
+      const { data } = await axios.get(
+        `${process.env.REACT_APP_API}/api/v1/product/product-list/${page}`
+      );
       setLoading(false);
       setProducts([...products, ...data?.products]);
     } catch (error) {
@@ -85,19 +94,24 @@ const HomePage = () => {
   };
   useEffect(() => {
     if (!checked.length || !radio.length) getAllProducts();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [checked.length, radio.length]);
 
   useEffect(() => {
     if (checked.length || radio.length) filterProduct();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [checked, radio]);
 
   //get filterd product
   const filterProduct = async () => {
     try {
-      const { data } = await axios.post(`${process.env.REACT_APP_API}/api/v1/product/product-filters`, {
-        checked,
-        radio,
-      });
+      const { data } = await axios.post(
+        `${process.env.REACT_APP_API}/api/v1/product/product-filters`,
+        {
+          checked,
+          radio,
+        }
+      );
       setProducts(data?.products);
     } catch (error) {
       console.log(error);
@@ -105,91 +119,124 @@ const HomePage = () => {
   };
   return (
     <Layout title={"All Products - Best offers "}>
-      <div className="container-fluid row mt-3">
-        <div className="col-md-2">
-          <h4 className="text-center">Filter By Category</h4>
-          <div className="d-flex flex-column">
-            {categories?.map((c) => (
-              <Checkbox
-                key={c._id}
-                onChange={(e) => handleFilter(e.target.checked, c._id)}
-              >
-                {c.name}
-              </Checkbox>
-            ))}
-          </div>
-          {/* price filter */}
-          <h4 className="text-center mt-4">Filter By Price</h4>
-          <div className="d-flex flex-column">
-            <Radio.Group onChange={(e) => setRadio(e.target.value)}>
-              {Prices?.map((p) => (
-                <div key={p._id}>
-                  <Radio value={p.array}>{p.name}</Radio>
-                </div>
-              ))}
-            </Radio.Group>
-          </div>
-          <div className="d-flex flex-column">
+      <div className="d-flex justify-content-center mt-3" data-bs-theme="dark">
+        <button
+          className="btn btn-danger"
+          type="button"
+          data-bs-toggle="offcanvas"
+          data-bs-target="#offcanvasWithBothOptions"
+          aria-controls="offcanvasWithBothOptions"
+        >
+          Not able to find something good? Try out the filters
+        </button>
+        <div
+          className="offcanvas offcanvas-start"
+          data-bs-scroll="true"
+          tabIndex={-1}
+          id="offcanvasWithBothOptions"
+          aria-labelledby="offcanvasWithBothOptionsLabel"
+        >
+          <div className="offcanvas-header">
+            <h5 className="offcanvas-title" id="offcanvasWithBothOptionsLabel">
+              Filters
+            </h5>
             <button
-              className="btn btn-danger"
-              onClick={() => window.location.reload()}
-            >
-              Reset Filters
-            </button>
+              type="button"
+              className="btn-close"
+              data-bs-dismiss="offcanvas"
+              aria-label="Close"
+            />
           </div>
-        </div>
-        <div className="col-md-10">
-          <div className="d-flex flex-wrap position-relative">
-            {products?.map((p) => (
-              <div className="card m-4" style={{ width: "18rem", height: "35rem" }} key={p._id}>
-                <img
-                  src={`${process.env.REACT_APP_API}/api/v1/product/product-photo/${p._id}`}
-                  className="card-img-top"
-                  alt={p.name}
-                />
-                <div className="card-body position-absolute bottom-0">
-                  <h5 className="card-title">{p.name}</h5>
-                  <p className="card-text">
-                    {p.description.substring(0, 30)}...
-                  </p>
-                  <p className="card-text"> ₹ {p.price}</p>
-                  <button
-                    className="btn btn-primary ms-1"
-                    onClick={() => navigate(`/product/${p.slug}`)}
-                  >
-                    More Details
-                  </button>
-                  <button
-                    className="btn btn-secondary ms-1"
-                    onClick={() => {
-                      setCart([...cart, p]);
-                      localStorage.setItem(
-                        "cart",
-                        JSON.stringify([...cart, p])
-                      );
-                      toast.success("Item Added to cart");
-                    }}
-                  >
-                    Add to Cart
-                  </button>
-                </div>
-              </div>
-            ))}
-          </div>
-          <div className="m-2 p-3">
-            {products && products.length < total && (
+          <div className="offcanvas-body">
+            <h4 className="text-center">Filter By Category</h4>
+            <div className="d-flex flex-column">
+              {categories?.map((c) => (
+                <Checkbox
+                  className="text-white"
+                  key={c._id}
+                  onChange={(e) => handleFilter(e.target.checked, c._id)}
+                >
+                  {c.name}
+                </Checkbox>
+              ))}
+            </div>
+            {/* price filter */}
+            <h4 className="text-center mt-4">Filter By Price</h4>
+            <div className="d-flex flex-column">
+              <Radio.Group onChange={(e) => setRadio(e.target.value)}>
+                {Prices?.map((p) => (
+                  <div key={p._id}>
+                    <Radio value={p.array} className="text-white">
+                      {p.name}
+                    </Radio>
+                  </div>
+                ))}
+              </Radio.Group>
+            </div>
+            <div className="d-flex flex-column mt-3">
               <button
-                className="btn btn-warning"
-                onClick={(e) => {
-                  e.preventDefault();
-                  setPage(page + 1);
-                }}
+                className="btn btn-danger"
+                onClick={() => window.location.reload()}
               >
-                {loading ? "Loading ..." : "Loadmore"}
+                Reset Filters
               </button>
-            )}
+            </div>
           </div>
         </div>
+      </div>
+
+      <div className="container-fluid row mt-3 mx-auto">
+        <div className="d-flex flex-wrap position-relative justify-content-center">
+          {products?.map((p) => (
+            <div
+              className="card m-1 mb-4 border shadow"
+              style={{ width: "18rem", height: "27rem" }}
+              key={p._id}
+            >
+              <img
+                src={`${process.env.REACT_APP_API}/api/v1/product/product-photo/${p._id}`}
+                className="p_img card-img-top"
+                width="300px"
+                height="200px"
+                alt={p.name}
+              />
+              <div className="card-body position-absolute bottom-0">
+                <h5 className="card-title">{p.name}</h5>
+                <p className="card-text">{p.description.substring(0, 30)}...</p>
+                <p className="card-text"> ₹ {p.price}</p>
+                <button
+                  className="btn btn-danger ms-1"
+                  onClick={() => navigate(`/product/${p.slug}`)}
+                >
+                  More Details
+                </button>
+                <button
+                  className="btn btn-danger ms-1"
+                  onClick={() => {
+                    setCart([...cart, p]);
+                    localStorage.setItem("cart", JSON.stringify([...cart, p]));
+                    toast.success("Item Added to cart");
+                  }}
+                >
+                  Add to Cart
+                </button>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+      <div className="mb-4 d-flex justify-content-center">
+        {products && products.length < total && (
+          <button
+            className="btn btn-danger"
+            onClick={(e) => {
+              e.preventDefault();
+              setPage(page + 1);
+            }}
+          >
+            {loading ? "Loading..." : "Load more"}
+          </button>
+        )}
       </div>
     </Layout>
   );
