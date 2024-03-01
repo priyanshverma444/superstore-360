@@ -105,14 +105,14 @@ const UpdateProduct = () => {
   };
   return (
     <Layout title={"Dashboard - Create Product"}>
-      <div className="container-fluid m-3 p-3">
+      <div className="container mt-4 mb-4">
         <div className="row">
-          <div className="col-md-3">
+          <div className="col-md-3 mb-4">
             <AdminMenu />
           </div>
-          <div className="col-md-9">
-            <h1>Update Product</h1>
-            <div className="m-1 w-75">
+          <div className="col-md-9 d-flex flex-column justify-content-center align-items-center">
+            {/* <h1>Update Product</h1> */}
+            <div className="card m-1 w-75 p-3">
               <Select
                 bordered={false}
                 placeholder="Select a category"
@@ -131,7 +131,7 @@ const UpdateProduct = () => {
                 ))}
               </Select>
               <div className="mb-3">
-                <label className="btn btn-outline-secondary col-md-12">
+                <label className="btn btn-outline-secondary col-md-12 w-100">
                   {photo ? photo.name : "Upload photo"}
                   <input
                     type="file"
@@ -158,7 +158,7 @@ const UpdateProduct = () => {
                       src={`${process.env.REACT_APP_API}/api/v1/product/product-photo/${id}`}
                       alt="product_photo"
                       height={"200px"}
-                      className="img img-responsive"
+                      className="p_img img img-responsive"
                     />
                   </div>
                 )}
@@ -216,12 +216,12 @@ const UpdateProduct = () => {
                   <Option value="1">Yes</Option>
                 </Select>
               </div>
-              <div className="mb-3">
-                <button className="btn btn-primary" onClick={handleUpdate}>
+              <div className="d-flex justify-content-center mb-3">
+                <button className="btn btn-dark" onClick={handleUpdate}>
                   Update Product
                 </button>
               </div>
-              <div className="mb-3">
+              <div className="d-flex justify-content-center mb-3">
                 <button className="btn btn-danger" onClick={handleDelete}>
                   Delete Product
                 </button>

@@ -109,7 +109,7 @@ const CreateProduct = () => {
                       src={URL.createObjectURL(photo)}
                       alt="product_photo"
                       height={"200px"}
-                      className="img img-responsive"
+                      className="p_img img img-responsive"
                     />
                   </div>
                 )}
@@ -167,7 +167,7 @@ const CreateProduct = () => {
                 </Select>
               </div>
               <div className="d-flex justify-content-center">
-                <button className="btn btn-danger" onClick={handleCreate}>
+                <button className="btn btn-dark" onClick={handleCreate}>
                   Create Product
                 </button>
               </div>

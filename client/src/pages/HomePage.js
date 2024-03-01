@@ -121,13 +121,13 @@ const HomePage = () => {
     <Layout title={"All Products - Best offers "}>
       <div className="d-flex justify-content-center mt-3" data-bs-theme="dark">
         <button
-          className="btn btn-dark"
+          className="btn btn-dark p-2"
           type="button"
           data-bs-toggle="offcanvas"
           data-bs-target="#offcanvasWithBothOptions"
           aria-controls="offcanvasWithBothOptions"
         >
-          Not able to find something good? Try out the filters
+          Not able to find your item ? Try out the filters !
         </button>
         <div
           className="offcanvas offcanvas-start"
