@@ -137,9 +137,9 @@ const HomePage = () => {
           aria-labelledby="offcanvasWithBothOptionsLabel"
         >
           <div className="offcanvas-header">
-            <h1 className="offcanvas-title" id="offcanvasWithBothOptionsLabel">
+            <h2 className="offcanvas-title" id="offcanvasWithBothOptionsLabel">
               Filters
-            </h1>
+            </h2>
             <button
               type="button"
               className="btn-close"
@@ -148,7 +148,7 @@ const HomePage = () => {
             />
           </div>
           <div className="offcanvas-body">
-            <div className="card p-3">
+            <div className="card p-2">
               <h4 className="text-center">Filter By Category</h4>
               <div className="d-flex flex-column">
                 {categories?.map((c) => (
@@ -163,7 +163,7 @@ const HomePage = () => {
               </div>
             </div>
             {/* price filter */}
-            <div className="card p-3 mt-4">
+            <div className="card p-2 mt-4">
               <h4 className="text-center">Filter By Price</h4>
               <div className="d-flex flex-column">
                 <Radio.Group onChange={(e) => setRadio(e.target.value)}>
@@ -177,7 +177,7 @@ const HomePage = () => {
                 </Radio.Group>
               </div>
             </div>
-            <div className="d-flex justfy-content-center align-items-center flex-column mt-3">
+            <div className="d-flex justfy-content-center align-items-center flex-column mt-4">
               <button
                 className="btn btn-danger w-75"
                 onClick={() => window.location.reload()}
