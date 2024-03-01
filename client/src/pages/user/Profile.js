@@ -61,68 +61,70 @@ const Profile = () => {
           </div>
           <div className="col-md-9 d-flex justify-content-center">
             <div className="card w-75 mb-4 border shadow" data-bs-theme="dark">
-            <div className="form-container p-4" data-bs-theme="dark">
-              <form onSubmit={handleSubmit}>
-                <h4 className="title d-flex justify-content-center">User Profile</h4>
-                <div className="mb-3">
-                  <input
-                    type="text"
-                    value={name}
-                    onChange={(e) => setName(e.target.value)}
-                    className="form-control"
-                    id="exampleInputEmail1"
-                    placeholder="Enter your name"
-                    autoFocus
-                  />
-                </div>
-                <div className="mb-3">
-                  <input
-                    type="email"
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                    className="form-control"
-                    id="exampleInputEmail1"
-                    placeholder="Enter your email"
-                    disabled
-                  />
-                </div>
-                <div className="mb-3">
-                  <input
-                    type="password"
-                    value={password}
-                    onChange={(e) => setPassword(e.target.value)}
-                    className="form-control"
-                    id="exampleInputPassword1"
-                    placeholder="Enter your password"
-                  />
-                </div>
-                <div className="mb-3">
-                  <input
-                    type="text"
-                    value={phone}
-                    onChange={(e) => setPhone(e.target.value)}
-                    className="form-control"
-                    id="exampleInputEmail1"
-                    placeholder="Enter your phone"
-                  />
-                </div>
-                <div className="mb-3">
-                  <input
-                    type="text"
-                    value={address}
-                    onChange={(e) => setAddress(e.target.value)}
-                    className="form-control"
-                    id="exampleInputEmail1"
-                    placeholder="Enter your address"
-                  />
-                </div>
-                <div className="d-flex justify-content-center">
-                <button type="submit" className="btn btn-danger">
-                  Update Profile
-                </button>
-                </div>
-              </form>
-            </div>
+              <div className="form-container p-4" data-bs-theme="dark">
+                <form onSubmit={handleSubmit}>
+                  <h4 className="title d-flex justify-content-center">
+                    User Profile
+                  </h4>
+                  <div className="mb-3">
+                    <input
+                      type="text"
+                      value={name}
+                      onChange={(e) => setName(e.target.value)}
+                      className="form-control"
+                      id="exampleInputEmail1"
+                      placeholder="Enter your name"
+                      autoFocus
+                    />
+                  </div>
+                  <div className="mb-3">
+                    <input
+                      type="email"
+                      value={email}
+                      onChange={(e) => setEmail(e.target.value)}
+                      className="form-control"
+                      id="exampleInputEmail1"
+                      placeholder="Enter your email"
+                      disabled
+                    />
+                  </div>
+                  <div className="mb-3">
+                    <input
+                      type="password"
+                      value={password}
+                      onChange={(e) => setPassword(e.target.value)}
+                      className="form-control"
+                      id="exampleInputPassword1"
+                      placeholder="Enter your password"
+                    />
+                  </div>
+                  <div className="mb-3">
+                    <input
+                      type="text"
+                      value={phone}
+                      onChange={(e) => setPhone(e.target.value)}
+                      className="form-control"
+                      id="exampleInputEmail1"
+                      placeholder="Enter your phone"
+                    />
+                  </div>
+                  <div className="mb-3">
+                    <input
+                      type="text"
+                      value={address}
+                      onChange={(e) => setAddress(e.target.value)}
+                      className="form-control"
+                      id="exampleInputEmail1"
+                      placeholder="Enter your address"
+                    />
+                  </div>
+                  <div className="d-flex justify-content-center">
+                    <button type="submit" className="btn btn-danger">
+                      Update Profile
+                    </button>
+                  </div>
+                </form>
+              </div>
             </div>
           </div>
         </div>

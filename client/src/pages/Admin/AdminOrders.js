@@ -76,11 +76,12 @@ const AdminOrders = () => {
                         <td>
                           <Select
                             bordered={false}
+                            style={{ width: 70 }}
                             onChange={(value) => handleChange(o._id, value)}
                             defaultValue={o?.status}
                           >
                             {status.map((s, i) => (
-                              <Option key={i} value={s}>
+                              <Option key={i} value={s} style={{ width: 120 }}>
                                 {s}
                               </Option>
                             ))}
@@ -105,7 +106,7 @@ const AdminOrders = () => {
                             height={"100px"}
                           />
                         </div>
-                        <div className="col-md-8">
+                        <div className="col-md-8 d-flex flex-column justify-content-center align-items-center">
                           <p>{p.name}</p>
                           <p>{p.description.substring(0, 30)}</p>
                           <p>Price : {p.price}</p>

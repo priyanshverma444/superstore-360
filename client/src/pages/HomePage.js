@@ -121,7 +121,7 @@ const HomePage = () => {
     <Layout title={"All Products - Best offers "}>
       <div className="d-flex justify-content-center mt-3" data-bs-theme="dark">
         <button
-          className="btn btn-danger"
+          className="btn btn-dark"
           type="button"
           data-bs-toggle="offcanvas"
           data-bs-target="#offcanvasWithBothOptions"
@@ -137,9 +137,9 @@ const HomePage = () => {
           aria-labelledby="offcanvasWithBothOptionsLabel"
         >
           <div className="offcanvas-header">
-            <h5 className="offcanvas-title" id="offcanvasWithBothOptionsLabel">
+            <h1 className="offcanvas-title" id="offcanvasWithBothOptionsLabel">
               Filters
-            </h5>
+            </h1>
             <button
               type="button"
               className="btn-close"
@@ -148,34 +148,38 @@ const HomePage = () => {
             />
           </div>
           <div className="offcanvas-body">
-            <h4 className="text-center">Filter By Category</h4>
-            <div className="d-flex flex-column">
-              {categories?.map((c) => (
-                <Checkbox
-                  className="text-white"
-                  key={c._id}
-                  onChange={(e) => handleFilter(e.target.checked, c._id)}
-                >
-                  {c.name}
-                </Checkbox>
-              ))}
+            <div className="card p-3">
+              <h4 className="text-center">Filter By Category</h4>
+              <div className="d-flex flex-column">
+                {categories?.map((c) => (
+                  <Checkbox
+                    className="text-white"
+                    key={c._id}
+                    onChange={(e) => handleFilter(e.target.checked, c._id)}
+                  >
+                    {c.name}
+                  </Checkbox>
+                ))}
+              </div>
             </div>
             {/* price filter */}
-            <h4 className="text-center mt-4">Filter By Price</h4>
-            <div className="d-flex flex-column">
-              <Radio.Group onChange={(e) => setRadio(e.target.value)}>
-                {Prices?.map((p) => (
-                  <div key={p._id}>
-                    <Radio value={p.array} className="text-white">
-                      {p.name}
-                    </Radio>
-                  </div>
-                ))}
-              </Radio.Group>
+            <div className="card p-3 mt-4">
+              <h4 className="text-center">Filter By Price</h4>
+              <div className="d-flex flex-column">
+                <Radio.Group onChange={(e) => setRadio(e.target.value)}>
+                  {Prices?.map((p) => (
+                    <div key={p._id}>
+                      <Radio value={p.array} className="text-white">
+                        {p.name}
+                      </Radio>
+                    </div>
+                  ))}
+                </Radio.Group>
+              </div>
             </div>
-            <div className="d-flex flex-column mt-3">
+            <div className="d-flex justfy-content-center align-items-center flex-column mt-3">
               <button
-                className="btn btn-danger"
+                className="btn btn-danger w-75"
                 onClick={() => window.location.reload()}
               >
                 Reset Filters
@@ -205,17 +209,17 @@ const HomePage = () => {
                 <p className="card-text">{p.description.substring(0, 30)}...</p>
                 <p className="card-text"> ₹ {p.price}</p>
                 <button
-                  className="btn btn-danger ms-1"
+                  className="btn btn-dark ms-1"
                   onClick={() => navigate(`/product/${p.slug}`)}
                 >
                   More Details
                 </button>
                 <button
-                  className="btn btn-danger ms-1"
+                  className="btn btn-dark ms-1"
                   onClick={() => {
                     setCart([...cart, p]);
                     localStorage.setItem("cart", JSON.stringify([...cart, p]));
-                    toast.success("Item Added to cart");
+                    toast.success("Item added to cart");
                   }}
                 >
                   Add to Cart
@@ -228,7 +232,7 @@ const HomePage = () => {
       <div className="mb-4 d-flex justify-content-center">
         {products && products.length < total && (
           <button
-            className="btn btn-danger"
+            className="btn btn-dark w-25"
             onClick={(e) => {
               e.preventDefault();
               setPage(page + 1);

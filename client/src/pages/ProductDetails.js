@@ -2,11 +2,14 @@ import React, { useState, useEffect } from "react";
 import Layout from "./../components/Layout/Layout";
 import axios from "axios";
 import { useParams, useNavigate } from "react-router-dom";
+import { useCart } from "../context/cart";
+import toast from "react-hot-toast";
 const ProductDetails = () => {
   const params = useParams();
   const navigate = useNavigate();
   const [product, setProduct] = useState({});
   const [relatedProducts, setRelatedProducts] = useState([]);
+  const [cart, setCart] = useCart();
 
   //initalp details
   useEffect(() => {
@@ -37,7 +40,7 @@ const ProductDetails = () => {
   };
   return (
     <Layout>
-      <div className="row card m-4 p-4 d-flex flex-row justify-content-center border shadow">
+      <div className="row card m-4 p-4 d-flex flex-row justify-content-center border shadow flex-wrap">
         <div className="col-md-5 m-4 card border shadow">
           <img
             src={`${process.env.REACT_APP_API}/api/v1/product/product-photo/${product._id}`}
@@ -54,7 +57,19 @@ const ProductDetails = () => {
           <h6>Price : {product.price}</h6>
           <h6>Category : {product?.category?.name}</h6>
           <div className="d-flex justify-content-center">
-          <button className="btn btn-danger mb-4 w-75">Add to Cart</button>
+            <button
+              className="btn btn-dark mb-4 w-75"
+              onClick={() => {
+                setCart([...cart, product]);
+                localStorage.setItem(
+                  "cart",
+                  JSON.stringify([...cart, product])
+                );
+                toast.success("Item Added to cart");
+              }}
+            >
+              Add to Cart
+            </button>
           </div>
         </div>
       </div>
@@ -62,11 +77,16 @@ const ProductDetails = () => {
       <div className="container-fluid row mt-3 mx-auto">
         <h1 className="d-flex justify-content-center">Similar Products</h1>
         {relatedProducts.length < 1 && (
-          <p className="text-center d-flex justify-content-center">No similar products found</p>
+          <p className="text-center d-flex justify-content-center">
+            No similar products found
+          </p>
         )}
         <div className="d-flex flex-wrap position-relative justify-content-center">
           {relatedProducts?.map((p) => (
-            <div className="card m-1 mb-4 border shadow" style={{ width: "18rem", height: "27rem" }}>
+            <div
+              className="card m-1 mb-4 border shadow"
+              style={{ width: "18rem", height: "27rem" }}
+            >
               <img
                 src={`${process.env.REACT_APP_API}/api/v1/product/product-photo/${p?._id}`}
                 className="p_img card-img-top"
@@ -79,12 +99,21 @@ const ProductDetails = () => {
                 <p className="card-text">{p.description.substring(0, 30)}...</p>
                 <p className="card-text"> ₹ {p.price}</p>
                 <button
-                  className="btn btn-danger ms-1"
+                  className="btn btn-dark ms-1"
                   onClick={() => navigate(`/product/${p.slug}`)}
                 >
                   More Details
                 </button>
-                <button class="btn btn-danger ms-1">Add to Cart</button>
+                <button
+                  className="btn btn-dark ms-1"
+                  onClick={() => {
+                    setCart([...cart, p]);
+                    localStorage.setItem("cart", JSON.stringify([...cart, p]));
+                    toast.success("Item Added to cart");
+                  }}
+                >
+                  Add to Cart
+                </button>
               </div>
             </div>
           ))}

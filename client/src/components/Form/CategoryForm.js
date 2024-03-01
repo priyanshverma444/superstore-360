@@ -14,9 +14,9 @@ const CategoryForm = ({ handleSubmit, value, setValue }) => {
           />
         </div>
         <div className="d-flex justify-content-center">
-        <button type="submit" className="btn btn-danger">
-          Submit
-        </button>
+          <button type="submit" className="btn btn-danger">
+            Submit
+          </button>
         </div>
       </form>
     </>

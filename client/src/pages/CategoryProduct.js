@@ -1,12 +1,15 @@
 import React, { useState, useEffect } from "react";
 import Layout from "../components/Layout/Layout";
 import { useParams, useNavigate } from "react-router-dom";
+import { useCart } from "../context/cart";
+import toast from "react-hot-toast";
 import axios from "axios";
 const CategoryProduct = () => {
   const params = useParams();
   const navigate = useNavigate();
   const [products, setProducts] = useState([]);
   const [category, setCategory] = useState([]);
+  const [cart, setCart] = useCart();
 
   useEffect(() => {
     if (params?.slug) getPrductsByCat();
@@ -25,23 +28,23 @@ const CategoryProduct = () => {
 
   return (
     <Layout>
-      <div className="container mt-3">
+      <div className="mt-4">
         <h4 className="text-center">Category - {category?.name}</h4>
-        <h6 className="text-center">{products?.length} Result found </h6>
-        <div className="row">
+        <h6 className="text-center">{products?.length} results found </h6>
+        <div className="mt-4">
           <div className="col">
             <div className="d-flex flex-wrap justify-content-center">
               {products?.map((p) => (
                 <div
-                className="card m-1 mb-4 border shadow"
-                style={{ width: "18rem", height: "27rem" }}
+                  className="card m-1 mb-4 border shadow"
+                  style={{ width: "18rem", height: "27rem" }}
                   key={p._id}
                 >
                   <img
                     src={`${process.env.REACT_APP_API}/api/v1/product/product-photo/${p._id}`}
                     className="p_img card-img-top"
-                width="300px"
-                height="200px"
+                    width="300px"
+                    height="200px"
                     alt={p.name}
                   />
                   <div className="card-body position-absolute bottom-0">
@@ -51,12 +54,22 @@ const CategoryProduct = () => {
                     </p>
                     <p className="card-text"> ₹ {p.price}</p>
                     <button
-                      className="btn btn-danger ms-1"
+                      className="btn btn-dark ms-1"
                       onClick={() => navigate(`/product/${p.slug}`)}
                     >
                       More Details
                     </button>
-                    <button className="btn btn-danger ms-1">
+                    <button
+                      className="btn btn-dark ms-1"
+                      onClick={() => {
+                        setCart([...cart, p]);
+                        localStorage.setItem(
+                          "cart",
+                          JSON.stringify([...cart, p])
+                        );
+                        toast.success("Item Added to cart");
+                      }}
+                    >
                       Add to Cart
                     </button>
                   </div>

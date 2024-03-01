@@ -39,55 +39,62 @@ const Login = () => {
 
   return (
     <Layout title="Login - Superstore-360">
-      <div
-        className="register card mx-auto mt-4"
-        data-bs-theme="dark"
-        style={{ width: "25rem", height: "26rem" }}
-      >
-        <form onSubmit={handleSubmit} data-bs-theme="dark">
-        <div className="d-flex justify-content-center mb-3">
-        <img src="images/superstore-360_logo.png" height="100px" width="100px" alt="" />
-        </div>
-        <h2 className="title">Login - Superstore-360</h2>
-          <div className="mb-3">
-            <input
-              type="email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              className="form-control"
-              id="exampleInputEmail1"
-              placeholder="Enter your email"
-              required
-            />
-          </div>
-          <div className="mb-3">
-            <input
-              type="password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              className="form-control"
-              id="exampleInputPassword1"
-              placeholder="Enter your password"
-              required
-            />
-          </div>
-          <div className="text-center">
+      <div className="d-flex justify-content-center">
+        <div
+          className="register card m-4 w-75"
+          data-bs-theme="dark"
+          style={{ height: "40rem" }}
+        >
+          <form onSubmit={handleSubmit} data-bs-theme="dark">
+            <div className="d-flex justify-content-center mb-3">
+              <img
+                src="images/superstore-360_logo.png"
+                height="100px"
+                width="100px"
+                alt=""
+              />
+            </div>
+            <h2 className="title">Login - Superstore-360</h2>
             <div className="mb-3">
-              <button
-                type="submit"
-                className="btn btn-danger w-50"
-                onClick={() => {
-                  navigate("/forgot-password");
-                }}
-              >
-                Forgot Password
+              <input
+                type="email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                className="form-control"
+                id="exampleInputEmail1"
+                placeholder="Enter your email"
+                required
+              />
+            </div>
+            <div className="mb-3">
+              <input
+                type="password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                className="form-control"
+                id="exampleInputPassword1"
+                placeholder="Enter your password"
+                required
+              />
+            </div>
+            <div className="text-center">
+              <div className="mb-3">
+                <button
+                  type="submit"
+                  className="btn btn-danger w-50"
+                  onClick={() => {
+                    navigate("/forgot-password");
+                  }}
+                >
+                  Forgot Password
+                </button>
+              </div>
+              <button type="submit" className="btn btn-danger w-50">
+                Login
               </button>
             </div>
-            <button type="submit" className="btn btn-danger w-50">
-              Login
-            </button>
-          </div>
-        </form>
+          </form>
+        </div>
       </div>
     </Layout>
   );

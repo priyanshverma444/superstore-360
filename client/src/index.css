@@ -19,14 +19,6 @@
   font-weight: 300 !important;
 }
 
-/* .nav-link:hover{
-  color: orange;
-} */
-
-.active {
-  color: darkorange;
-}
-
 .navbar-brand {
   font-weight: 700;
   font-family: "roboto", sans-serif;
@@ -84,7 +76,7 @@
   margin-top: 10px;
 }
 .pnf-btn:hover {
-  background-color: orange;
+  background-color: gray;
   color: white;
 }
 
@@ -117,7 +109,7 @@
 
 .sec_nav_wrapper {
   overflow: hidden;
-  height: 43px;
+  height: 38px;
 }
 .sec_nav {
   list-style-type: none;
@@ -135,4 +127,17 @@
   color: var(--bs-list-group-active-color-dark);
   background-color: var(--bs-list-group-active-bg-dark);
   border-color: var(--bs-list-group-active-border-color-dark);
+}
+
+element.style {
+  padding-right: 0px;
+  overflow: auto;
+}
+
+body {
+  overflow: auto !important; 
+}
+
+.table>:not(caption)>*>* {
+  padding: 0.5rem 0.3rem !important; 
 }

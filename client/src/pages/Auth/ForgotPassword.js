@@ -30,53 +30,64 @@ const ForgotPassword = () => {
   };
   return (
     <Layout title="Forgot Password : Superstore-360">
-      <div className="register card mx-auto mt-4"
-        data-bs-theme="dark"
-        style={{ width: "25rem", height: "26rem" }}>
-        <form onSubmit={handleSubmit}>
-        <div className="d-flex justify-content-center mb-3">
-        <img src="images/superstore-360_logo.png" height="100px" width="100px" alt="" />
+      <div className="d-flex justify-content-center">
+        <div
+          className="register card m-4 w-75"
+          data-bs-theme="dark"
+          style={{ height: "40rem" }}
+        >
+          <form onSubmit={handleSubmit}>
+            <div className="d-flex justify-content-center mb-3">
+              <img
+                src="images/superstore-360_logo.png"
+                height="100px"
+                width="100px"
+                alt=""
+              />
+            </div>
+            <h2 className="title d-flex justify-content-center">
+              Reset Password
+            </h2>
+            <div className="mb-3">
+              <input
+                type="email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                className="form-control"
+                id="exampleInputEmail1"
+                placeholder="Enter your email"
+                required
+              />
+            </div>
+            <div className="mb-3">
+              <input
+                type="text"
+                value={answer}
+                onChange={(e) => setAnswer(e.target.value)}
+                className="form-control"
+                id="exampleInputGame1"
+                placeholder="Enter your favourite game"
+                required
+              />
+            </div>
+            <div className="mb-3">
+              <input
+                type="password"
+                value={newPassword}
+                onChange={(e) => setNewPassword(e.target.value)}
+                className="form-control"
+                id="exampleInputPassword1"
+                placeholder="Enter your new password"
+                required
+              />
+            </div>
+            <div className="text-center">
+              <button type="submit" className="btn btn-danger w-50">
+                Reset
+              </button>
+            </div>
+          </form>
         </div>
-          <h2 className="title">Reset Password</h2>
-          <div className="mb-3">
-            <input
-              type="email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              className="form-control"
-              id="exampleInputEmail1"
-              placeholder="Enter your email"
-              required
-            />
-          </div>
-          <div className="mb-3">
-            <input
-              type="text"
-              value={answer}
-              onChange={(e) => setAnswer(e.target.value)}
-              className="form-control"
-              id="exampleInputGame1"
-              placeholder="Enter your favourite game"
-              required
-            />
-          </div>
-          <div className="mb-3">
-            <input
-              type="password"
-              value={newPassword}
-              onChange={(e) => setNewPassword(e.target.value)}
-              className="form-control"
-              id="exampleInputPassword1"
-              placeholder="Enter your new password"
-              required
-            />
-          </div>
-          <div className="text-center">
-          <button type="submit" className="btn btn-danger w-50">
-            Reset
-          </button>
-          </div>
-        </form>
       </div>
     </Layout>
   );

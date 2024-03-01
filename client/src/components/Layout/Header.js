@@ -23,7 +23,7 @@ const Header = () => {
   return (
     <>
       <nav
-        className="navbar navbar-expand-lg bg-dark border-bottom border-body"
+        className="navbar navbar-expand-lg bg-dark border-bottom border-body p-1"
         data-bs-theme="dark"
       >
         <Link to="/" className="navbar-brand">
@@ -45,25 +45,39 @@ const Header = () => {
           id="navbarOffcanvasLg"
           aria-labelledby="navbarOffcanvasLgLabel"
         >
-          <div className="container-fluid">
+          <div className="offcanvas-header">
+            <h1 className="offcanvas-title" id="offcanvasWithBothOptionsLabel">
+              <Link to="/" className="navbar-brand">
+                <img src="/images/superstore-360_logo.png" alt="" />{" "}
+                Superstore-360
+              </Link>
+            </h1>
+            <button
+              type="button"
+              className="btn-close"
+              data-bs-dismiss="offcanvas"
+              aria-label="Close"
+            />
+          </div>
+          <div className="container">
             <div className="navbar-collapse">
-              <div className="ms-auto mb-1">
+              <div className="ms-auto mb-1 px-1 py-1">
                 <SearchInput />
               </div>
               <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
-                <li className="nav-item">
+                <li className="nav-item px-1 py-1">
                   <NavLink to="/" className="nav-link">
                     Home
                   </NavLink>
                 </li>
-                <li className="nav-item">
+                <li className="nav-item px-1 py-1">
                   <NavLink to="/categories" className="nav-link">
                     All Categories
                   </NavLink>
                 </li>
                 {!auth?.user ? (
                   <>
-                    <li className="nav-item">
+                    <li className="nav-item px-1 py-1">
                       <NavLink to="/register" className="nav-link">
                         SignUp
                       </NavLink>
@@ -71,7 +85,7 @@ const Header = () => {
                   </>
                 ) : (
                   <>
-                    <li className="nav-item dropdown">
+                    <li className="nav-item dropdown px-1 py-1">
                       <NavLink
                         className="nav-link dropdown-toggle"
                         href="#"
@@ -82,7 +96,7 @@ const Header = () => {
                         {auth?.user?.name}
                       </NavLink>
                       <ul className="dropdown-menu">
-                        <li>
+                        <li className="px-1 py-1">
                           <NavLink
                             to={`/dashboard/${
                               auth?.user?.role === 1 ? "admin" : "user"
@@ -92,7 +106,7 @@ const Header = () => {
                             Dashboard
                           </NavLink>
                         </li>
-                        <li>
+                        <li className="px-1 py-1">
                           <NavLink
                             onClick={handleLogout}
                             to="/login"
@@ -105,7 +119,7 @@ const Header = () => {
                     </li>
                   </>
                 )}
-                <li className="nav-item">
+                <li className="nav-item px-1 py-1">
                   <div className="d-flex">
                     <NavLink to="/cart" className="nav-link">
                       Cart

@@ -6,13 +6,13 @@ const Categories = () => {
   const categories = useCategory();
   return (
     <Layout title={"All Categories"}>
-      <div className="container">
+      <div className="m-4">
         <div className="row">
           {categories.map((c) => (
             <div className="col-md-4 gx-3 gy-3" key={c._id}>
               <Link
                 to={`/category/${c.slug}`}
-                className="categories_button btn-danger btn text-white"
+                className="categories_button btn-dark btn text-white"
               >
                 {c.name}
               </Link>
