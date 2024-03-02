@@ -67,8 +67,8 @@ function App() {
           style={{ height: "100vh" }}
           data-bs-theme="dark"
         >
-          <l-quantum size="125" speed="1.50" color="red"></l-quantum>
-          <h1 className="mt-4">Loading, Please wait...</h1>
+          <l-quantum size="50" speed="1.75" color="white"></l-quantum>
+          <h3 className="mt-4">Loading, Please wait...</h3>
         </div>
       ) : (
         <Routes>
