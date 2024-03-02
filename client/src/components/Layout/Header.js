@@ -138,7 +138,7 @@ const Header = () => {
           data-bs-theme="dark"
         >
           <div class="navbar-nav">
-            <div className="d-flex flex-row">
+            <div className="d-flex flex-row flex-row-reverse">
               {categories?.map((c) => (
                 <div>
                   <Link
