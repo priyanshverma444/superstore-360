@@ -104,7 +104,7 @@ const UpdateProduct = () => {
     }
   };
   return (
-    <Layout title={"Dashboard - Create Product"}>
+    <Layout title={"Update Product : Superstore-360"}>
       <div className="container mt-4 mb-4">
         <div className="row">
           <div className="col-md-3 mb-4">

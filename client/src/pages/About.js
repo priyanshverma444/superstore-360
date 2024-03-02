@@ -3,7 +3,7 @@ import Layout from "./../components/Layout/Layout";
 
 const About = () => {
   return (
-    <Layout title={"About"}>
+    <Layout title={"About : Superstore-360"}>
       <div
         className="d-flex flex-column card m-4 border shadow"
         data-bs-theme="dark"

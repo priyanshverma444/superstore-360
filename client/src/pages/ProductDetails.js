@@ -39,7 +39,7 @@ const ProductDetails = () => {
     }
   };
   return (
-    <Layout>
+    <Layout title={"Product Details : Superstore-360"}>
       <div className="row card m-4 p-4 d-flex flex-row justify-content-center border shadow flex-wrap">
         <div className="col-md-5 m-4 card border shadow">
           <img

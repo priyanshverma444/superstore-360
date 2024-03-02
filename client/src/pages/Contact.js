@@ -3,7 +3,7 @@ import Layout from "./../components/Layout/Layout";
 import { BiMailSend, BiPhoneCall, BiSupport } from "react-icons/bi";
 const Contact = () => {
   return (
-    <Layout title="Contact us">
+    <Layout title="Contact Us : Superstore-360">
       <div
         className="d-flex flex-column card m-4 border shadow"
         data-bs-theme="dark"

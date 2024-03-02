@@ -27,7 +27,7 @@ const CategoryProduct = () => {
   };
 
   return (
-    <Layout>
+    <Layout title={"Category : Superstore-360"}>
       <div className="mt-4">
         <h4 className="text-center">Category - {category?.name}</h4>
         <h6 className="text-center">{products?.length} results found </h6>

@@ -9,7 +9,7 @@ const Search = () => {
   const [cart, setCart] = useCart();
   const navigate = useNavigate();
   return (
-    <Layout title={"Search results"}>
+    <Layout title={"Search Results"}>
       <div className="container">
         <div className="text-center mt-4">
           <h1>Search Results</h1>

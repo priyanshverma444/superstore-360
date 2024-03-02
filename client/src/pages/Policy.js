@@ -3,7 +3,7 @@ import Layout from "./../components/Layout/Layout";
 
 const Policy = () => {
   return (
-    <Layout title={"Privacy Policy"}>
+    <Layout title={"Privacy Policy : Superstore-360"}>
       <div className="card m-4 border shadow p-3" data-bs-theme="dark">
         <h1 className="text-center mt-2">Privacy Policy</h1>
         <p className="text-center">Last updated: January 17, 2024</p>

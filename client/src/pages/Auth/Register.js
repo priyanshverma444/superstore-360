@@ -33,7 +33,7 @@ const Register = () => {
     }
   };
   return (
-    <Layout title="Register - Superstore-360">
+    <Layout title="SignUp : Superstore-360">
       <div className="d-flex justify-content-center">
         <div
           className="register m-4 card w-75"
@@ -128,7 +128,7 @@ const Register = () => {
           <div className="text-center mt-3">
             <NavLink to="/login" className="nav-link">
               <button className="btn btn-danger w-75">
-                Already a user ? Login here !
+                Already a user? Login here!
               </button>
             </NavLink>
           </div>

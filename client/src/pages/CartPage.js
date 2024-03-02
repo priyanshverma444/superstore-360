@@ -81,7 +81,7 @@ const CartPage = () => {
     }
   };
   return (
-    <Layout>
+    <Layout title={"Cart : Superstore-360"}>
       <div className="">
         <div className="col-md-11 m-4">
           <h1 className="text-center bg-light p-2 mb-1">

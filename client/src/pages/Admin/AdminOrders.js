@@ -48,7 +48,7 @@ const AdminOrders = () => {
     }
   };
   return (
-    <Layout title={"All Orders Data"}>
+    <Layout title={"All Orders : Superstore-360"}>
       <div className="container mt-4 dashboard">
         <div className="row">
           <div className="col-md-3 mb-4">

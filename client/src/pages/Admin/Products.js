@@ -25,7 +25,7 @@ const Products = () => {
     getAllProducts();
   }, []);
   return (
-    <Layout>
+    <Layout title={"All Products : Superstore-360"}>
       <div className="container mt-4 mb-4">
         <div className="row">
           <div className="col-md-3 mb-4">

@@ -5,7 +5,7 @@ import { useAuth } from "../../context/auth";
 const AdminDashboard = () => {
   const [auth] = useAuth();
   return (
-    <Layout>
+    <Layout title={"Admin Dashboard : Superstore-360"}>
       <div className="container mt-4">
         <div className="row">
           <div className="col-md-3 mb-4">

@@ -38,7 +38,7 @@ const Login = () => {
   };
 
   return (
-    <Layout title="Login - Superstore-360">
+    <Layout title="Login : Superstore-360">
       <div className="d-flex justify-content-center">
         <div
           className="register card m-4 w-75"

@@ -118,7 +118,7 @@ const HomePage = () => {
     }
   };
   return (
-    <Layout title={"All Products - Best offers "}>
+    <Layout title={"Home : Superstore-360"}>
       <div className="d-flex justify-content-center mt-3" data-bs-theme="dark">
         <button
           className="btn btn-dark p-2"
@@ -127,7 +127,7 @@ const HomePage = () => {
           data-bs-target="#offcanvasWithBothOptions"
           aria-controls="offcanvasWithBothOptions"
         >
-          Not able to find your item ? Try out the filters !
+          Find your choice quicker, try out the filters!
         </button>
         <div
           className="offcanvas offcanvas-start"
