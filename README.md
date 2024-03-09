@@ -1,19 +1,22 @@
-Superstore-360
-A MERN Stack e-commerce web application.
+# Superstore-360
 
-Overview -
-Superstore-360 is a full-featured e-commerce web application that allows users to browse, purchase, and track orders for a wide variety of products. The site is built using the MERN Stack (MongoDB, Express.js, React, and Node.js) and features a user-friendly interface and a secure checkout process.
+##### Your one-stop shop for endless possibilities!
 
+## Description
 
-Features - 
-Product browsing: Users can browse products by category, brand, or keyword. Each product page includes detailed information such as product descriptions, images, categories and prices.
+Superstore-360 is a full-featured e-commerce web application built using the MERN Stack (MongoDB, Express.js, React and Node.js).
 
-Shopping cart: Users can add products to their shopping cart and review their order before checking out.
+## Features
 
-Checkout: Users can check out using a variety of payment methods, including credit cards, debit cards, and PayPal.
+- Browse a wide variety of products by category, brand or keyword.
+- View detailed product information on each product page, including descriptions, images, categories and prices.
+- Add products to their shopping cart and review their order before checkout.
+- Checkout securely using various payment methods, including credit cards, debit cards and PayPal.
+- Track their order status conveniently from the user dashboard.
 
-Order tracking: Users can track the status of their orders from their account page.
+## Technologies Used
 
-Tech Stack -
-Frontend: React, Redux
-Backend: Node.js, Express.js, MongoDB
+- MongoDB
+- Express.js
+- React.js
+- Node.js
